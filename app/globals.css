@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Hammersmith One";
-  src: url("/fonts/hammersmith-latin-ext.woff2") format("woff2");
+  src: url("/fonts/hammersmith-one-400.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "Open Sans";
-  src: url("/fonts/open-sans-400-latin-ext.woff2") format("woff2");
+  src: url("/fonts/open-sans-400.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: "Open Sans";
-  src: url("/fonts/open-sans-600-latin-ext.woff2") format("woff2");
+  src: url("/fonts/open-sans-600.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: "Open Sans";
-  src: url("/fonts/open-sans-700-latin-ext.woff2") format("woff2");
+  src: url("/fonts/open-sans-700.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -146,6 +146,7 @@ h1, h2, h3, h4 {
 
 .nav-link:hover::after, .nav-link--active::after { opacity: 1; transform: scaleX(1); }
 .menu-button { display: none; }
+.menu-backdrop { display: none; }
 
 .hero {
   position: relative;
@@ -315,14 +316,27 @@ h1, h2, h3, h4 {
 .meetup-band ul { display: inline-grid; gap: 8px; margin: 0 auto 24px; padding-left: 22px; text-align: left; }
 
 @media (max-width: 1080px) {
-  .site-header { justify-content: flex-end; }
+  .site-header { z-index: 20; justify-content: flex-end; }
   .brand-mark { display: block; margin-right: auto; }
-  .menu-button { display: grid; width: 46px; height: 46px; padding: 0; place-items: center; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
+  .menu-button { position: relative; z-index: 3; display: grid; width: 46px; height: 46px; padding: 0; place-items: center; border: 1px solid rgba(26, 26, 26, .12); border-radius: 50%; background: rgba(255, 255, 255, .9); color: var(--ink); cursor: pointer; }
   .menu-button svg { width: 28px; height: 28px; }
+  .menu-backdrop {
+    position: fixed;
+    z-index: 1;
+    inset: 0;
+    display: block;
+    border: 0;
+    background: rgba(17, 20, 18, .38);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+  }
+  .menu-backdrop--open { opacity: 1; pointer-events: auto; }
   .site-nav {
     position: fixed;
+    z-index: 2;
     top: 0;
-    right: -100vw;
+    right: 0;
     display: flex;
     width: min(420px, 100vw);
     height: 100svh;
@@ -332,11 +346,14 @@ h1, h2, h3, h4 {
     justify-content: flex-start;
     gap: 7px;
     background: rgba(255, 255, 255, .98);
-    transition: right .3s ease;
+    box-shadow: -18px 0 50px rgba(0, 0, 0, .12);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform .3s ease, visibility 0s linear .3s;
   }
-  .site-nav--open { right: 0; }
-  .site-nav--open ~ * { pointer-events: none; }
-  .menu-button { z-index: 2; }
+  .site-nav--open { transform: translateX(0); visibility: visible; transition-delay: 0s; }
   .nav-link { width: 100%; padding: 12px 0; font-size: 22px; }
   .nav-link::after { right: auto; width: 50px; }
   .split-copy { grid-template-columns: 1fr 1fr; }
@@ -347,7 +364,7 @@ h1, h2, h3, h4 {
   :root { --gutter: 22px; --section-space: 72px; }
   body { font-size: 17px; }
   .site-header { width: calc(100% - 36px); min-height: 92px; }
-  .brand-mark { visibility: hidden; }
+  .brand-mark { padding: 7px 12px; border-radius: 999px; background: rgba(255, 255, 255, .9); }
   .hero { min-height: 460px; }
   .hero--home { min-height: min(620px, 100svh); }
   .hero-copy { bottom: 54px; }
@@ -361,6 +378,7 @@ h1, h2, h3, h4 {
   .split-copy p { text-align: left; }
   .home-about-media { min-height: 430px; }
   .image-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .image-grid .image-grid-item { aspect-ratio: 4 / 5; }
   .gallery-grid { grid-template-columns: 1fr; }
   .home-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .home-grid .image-grid-item, .home-grid .image-grid-item:nth-child(1), .home-grid .image-grid-item:nth-child(6) { grid-column: span 1; aspect-ratio: 4 / 5; }
