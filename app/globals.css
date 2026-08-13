@@ -151,7 +151,6 @@ h1, h2, h3, h4 {
 .hero {
   position: relative;
   min-height: clamp(470px, 48vw, 680px);
-  overflow: hidden;
   background: #dfe2df;
 }
 
