@@ -32,6 +32,7 @@ The recommended deployment method is GitHub integration:
 5. Use `npm run build` as the build command and `npm start` as the start command.
 6. No environment variables are required for the current site.
 7. Deploy and inspect the Hostinger preview before switching the production domain.
+8. After connecting the production domain, enable Hostinger CDN under **Performance** → **CDN**.
 
 Hostinger also accepts a ZIP upload. Include the source, `package.json`, and `package-lock.json`, but exclude `node_modules` and `.next`.
 
