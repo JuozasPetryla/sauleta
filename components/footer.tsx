@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { contact } from "@/data/site";
+import { contact, footerPhones } from "@/data/site";
 
 export function Footer() {
   return (
@@ -12,7 +12,9 @@ export function Footer() {
         </div>
         <div className="footer-contact">
           <a href={`https://maps.google.com/?q=${encodeURIComponent(contact.address)}`} target="_blank" rel="noreferrer"><MapPin />{contact.address}</a>
-          <a href={`tel:${contact.phoneHref}`}><Phone />{contact.phone}</a>
+          {footerPhones.map((phone) => (
+            <a href={`tel:${phone}`} key={phone}><Phone />{phone}</a>
+          ))}
           <a href={`mailto:${contact.email}`}><Mail />{contact.email}</a>
         </div>
         <div className="footer-socials">

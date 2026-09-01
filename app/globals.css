@@ -45,10 +45,18 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
 
 body {
+  max-width: 100%;
   margin: 0;
+  overflow-x: hidden;
+  overflow-x: clip;
   color: var(--ink);
   background: var(--paper);
   font-family: "Open Sans", Arial, sans-serif;
@@ -315,8 +323,21 @@ h1, h2, h3, h4 {
 .meetup-band ul { display: inline-grid; gap: 8px; margin: 0 auto 24px; padding-left: 22px; text-align: left; }
 
 @media (max-width: 1080px) {
-  .site-header { z-index: 20; justify-content: flex-end; }
-  .brand-mark { display: block; margin-right: auto; }
+  .site-header {
+    position: fixed;
+    z-index: 20;
+    left: 24px;
+    justify-content: flex-end;
+    transform: none;
+  }
+  .brand-mark {
+    display: block;
+    margin-right: auto;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, .08);
+  }
   .menu-button { position: relative; z-index: 3; display: grid; width: 46px; height: 46px; padding: 0; place-items: center; border: 1px solid rgba(26, 26, 26, .12); border-radius: 50%; background: rgba(255, 255, 255, .9); color: var(--ink); cursor: pointer; }
   .menu-button svg { width: 28px; height: 28px; }
   .menu-backdrop {
@@ -334,11 +355,10 @@ h1, h2, h3, h4 {
   .site-nav {
     position: fixed;
     z-index: 2;
-    top: 0;
+    inset-block: 0;
     right: 0;
     display: flex;
     width: min(420px, 100vw);
-    height: 100svh;
     padding: 110px 36px 40px;
     flex-direction: column;
     align-items: flex-start;
@@ -362,8 +382,8 @@ h1, h2, h3, h4 {
 @media (max-width: 760px) {
   :root { --gutter: 22px; --section-space: 72px; }
   body { font-size: 17px; }
-  .site-header { width: calc(100% - 36px); min-height: 92px; }
-  .brand-mark { padding: 7px 12px; border-radius: 999px; background: rgba(255, 255, 255, .9); }
+  .site-header { left: 18px; width: calc(100% - 36px); min-height: 92px; }
+  .site-nav { width: 100vw; }
   .hero { min-height: 460px; }
   .hero--home { min-height: min(620px, 100svh); }
   .hero-copy { bottom: 54px; }

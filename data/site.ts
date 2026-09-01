@@ -17,6 +17,8 @@ export const contact = {
   instagram: "https://www.instagram.com/sauleta_svente_studija/",
 };
 
+export const footerPhones = ["+37060940594", "+37065909034"] as const;
+
 export const media = (file: string) => `/media/${file}`;
 
 export const homeGallery = [
