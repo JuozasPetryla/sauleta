@@ -1,10 +1,10 @@
 export const navItems = [
   { href: "/apie", label: "Apie" },
-  { href: "/galerija", label: "Galerija" },
   { href: "/paketai-ir-ju-kainos", label: "Paketai ir jų kainos" },
   { href: "/maisto-tiekejai", label: "Maisto tiekėjai" },
   { href: "/atsiliepimai", label: "Atsiliepimai" },
   { href: "/kontaktai", label: "Kontaktai" },
+  { href: "/galerija", label: "Galerija" },
   { href: "/naudinga", label: "Naudinga" },
 ] as const;
 
