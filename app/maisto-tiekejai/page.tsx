@@ -21,10 +21,10 @@ export default function SuppliersPage() {
       <section className="section section--soft"><div className="container supplier-block">
         <h2>MAŽIAU RŪPESČIŲ IKI ATVYKSTANT SVEČIAMS</h2>
         <div><p>Užsakytas maistas atvežamas į studiją ir sudėliojamas į specialias lėkštes. Užsisakant karštus patiekalus, Jums nereikia rūpintis jų pateikimu – juos patiekiame ant stalų.</p><p>Galite atsivežti ir savo maistą ar pasirinkti kitus tiekėjus be papildomo mokesčio.</p><p><strong>Užsisakant iš mūsų tiekėjų taikomas 10 Eur pristatymo mokestis.</strong> Jei karštieji patiekalai pristatomi atskirai nuo užkandžių, papildomai taikomas 10 Eur mokestis.</p>
-          <div className="button-row"><a className="button" href={media("meniu-YrDW21anJLUPJMjp.pdf")} target="_blank"><Download />„TastyBite“ meniu</a><a className="button" href={media("muus_art.of.bites-ua3-4kanda3-4ia3-pasia-lymas-su-vaika3-meniu-Yan04p24NLI1Z4L6.pdf")} target="_blank"><Download />„MUUS“ meniu</a><a className="button button--secondary" href="https://kitchenobsession.lt/" target="_blank" rel="noreferrer">„Kitchen Obsession“<ExternalLink /></a></div>
+          <div className="button-row"><a className="button" href={media("meniu-YrDW21anJLUPJMjp.pdf")} target="_blank"><Download />„TastyBite“ meniu</a><a className="button" href={media("muus_art.of.bites-ua3-4kanda3-4ia3-pasia-lymas-su-vaika3-meniu-Yan04p24NLI1Z4L6.pdf")} target="_blank"><Download />„MUUS“ meniu</a><a className="button button--secondary" href="http://kitchenobsession.lt/" target="_blank" rel="noreferrer">„Kitchen Obsession“<ExternalLink /></a></div>
         </div>
       </div></section>
-      <section className="section--tight"><div className="container"><h2 className="section-heading">SKONIAI IR PATEIKIMAS</h2><ImageGrid images={foodImages} label="Šventės maistas" /></div></section>
+      <section className="section--tight gallery-showcase" id="maisto-galerija"><div className="container"><div className="gallery-heading"><p className="eyebrow">Skoniai ir pateikimas</p><h2>Maistas, kuris puošia šventę</h2></div><ImageGrid images={foodImages} className="editorial-grid editorial-grid--food" label="Šventės maistas" sizes="(max-width: 760px) 100vw, (max-width: 1080px) 50vw, 67vw" /></div></section>
     </>
   );
 }

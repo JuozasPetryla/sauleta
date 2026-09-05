@@ -9,9 +9,18 @@ export default function GalleryPage() {
   return (
     <>
       <Hero image={media("untitled-website-2-YbN91Db6NruXXDrB.png")} title="Galerija" />
-      <section className="section--tight">
+      <section className="section--tight gallery-showcase" id="nuotraukos">
         <div className="container">
-          <ImageGrid images={galleryImages} className="gallery-grid" label="Saulėta galerija" />
+          <div className="gallery-heading">
+            <p className="eyebrow">Švenčių akimirkos</p>
+            <h2>Jaukumas, detalės ir tikros emocijos</h2>
+          </div>
+          <ImageGrid
+            images={galleryImages}
+            className="editorial-grid"
+            label="Saulėta galerija"
+            sizes="(max-width: 760px) 100vw, (max-width: 1080px) 50vw, 67vw"
+          />
         </div>
       </section>
     </>

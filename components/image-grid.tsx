@@ -5,9 +5,15 @@ type ImageGridProps = {
   images: readonly string[];
   className?: string;
   label?: string;
+  sizes?: string;
 };
 
-export function ImageGrid({ images, className = "", label = "Saulėta šventės erdvė" }: ImageGridProps) {
+export function ImageGrid({
+  images,
+  className = "",
+  label = "Saulėta šventės erdvė",
+  sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 34vw",
+}: ImageGridProps) {
   return (
     <div className={`image-grid ${className}`.trim()}>
       {images.map((image, index) => (
@@ -16,7 +22,7 @@ export function ImageGrid({ images, className = "", label = "Saulėta šventės 
             src={media(image)}
             alt={`${label}, nuotrauka ${index + 1}`}
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 34vw"
+            sizes={sizes}
           />
         </figure>
       ))}
